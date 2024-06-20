@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+<h1>This page shows user information</h1>
+
+    {% block content %}
+
+
+        {% for user in users %}
+            <a href="/user/{{user.id}}">
+            <section>
+                <span>{{user.first_name}}</span>
+                <span>{{user.last_name}}</span>
+            </section>
+            </a>
+        {% endfor %}
+
+
+    {% endblock %}
+
+<h2>end of page</h2>

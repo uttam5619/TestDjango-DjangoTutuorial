@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class UserInfo(models.Model):
     
     GENDER_TYPES = [
     ('M', 'male'),
@@ -15,10 +15,10 @@ class User(models.Model):
     ('UG', 'UnderGraduate'),
     ('PG', 'PostGraduate'),
     ]
-
-    first_name = models.CharField(max_length=150),
-    last_name = models.CharField(max_length=150),
-    email = models.EmailField(max_length=150, unique=True, default=None),
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    user_name = models.CharField(max_length=150, unique=True)
+    email = models.EmailField(max_length=150, unique=True, default=None)
     password = models.CharField(max_length=250)
     age = models.DurationField(default=None)
     dob= models.DateField(default=None)
@@ -30,3 +30,21 @@ class User(models.Model):
     profile_picture = models.ImageField(upload_to='media/')
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated_at = models.DateTimeField(auto_now_add=True, auto_now=False)
+
+    def __str__(self):
+        return self.user_name
+
+
+class Orders(models.Model):
+    pass
+
+class PurchaseHistory(models.Model):
+    pass
+
+class WhishList(models.Model):
+    pass
+
+class Feeds:
+    #like
+    #commet
+    pass
